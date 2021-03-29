@@ -11,7 +11,7 @@ public class Ember {
     this.nev = nev;
     this.kor = kor;
     this.szeretiACicat = szeretiACicat;
-  }w
+  }
 
   public String getNev() {  //Getter függvény
     return nev;
