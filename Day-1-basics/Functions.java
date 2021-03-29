@@ -6,7 +6,7 @@ public class Functions {
 
   public static int sum(int a, int b) { // A függvénynek mindig van típusa, vagy void
     int eredmeny = a + b;
-    return eredmeny;
+    return eredmeny;  // Kötelező a visszatérési érték, ha van visszatérési típusa a függvénynek
   } 
 
 }

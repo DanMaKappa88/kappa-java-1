@@ -26,7 +26,7 @@ public class DataTypes {
     System.out.println("VAGY " + (a | b));
 
     String alma = "Alma";   // NEM primitív, hanem referencia/objektum
-    Integer szam = 20;
+    Integer szam = 20;  // Wrapper class az int-hez
     System.out.println(szam.doubleValue());
 
   }
