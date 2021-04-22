@@ -1,10 +1,31 @@
 package hu.flowacademy.kappa;
 
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.function.Predicate;
+
 
 public class Main {
 
+    public void kiir(Predicate<Integer> f) {
+        int szam = (int)Math.floor(Math.random()* 100);
+        if(f.test(szam)){
+            System.out.println("Teljesült a feltétel");
+        }
+        kiir((num) -> num > 10);
+    }
     public static void main(String[] args) {
+//        SajatLista sl = new SajatLista(10, 20, 30,40);
+//        System.out.println(sl);
+//        System.out.println(sl.filter((szam -> szam > 20)));
+        MyIntList ml = new MyIntList(1, 2, 3, 4);
+        ml.add(100);
+        ml.add(10);
+        System.out.println(ml);
+        System.out.println(ml.filter((num)-> num % 2 == 0));
+        System.out.println(ml.filter((num)-> num > 20));
 //	    if(args.length == 2) {
 //	        try {
 //                int a = Integer.parseInt(args[0]);
@@ -68,12 +89,24 @@ public class Main {
 //        for (Map.Entry<String, Integer> elem : ef.entrySet()) {
 //            System.out.println(elem.getKey() + "\t" + elem.getValue());
 //        }
-        List<Cica> cicakok = new ArrayList<>();
-        cicakok.add(new Cica(1, "Győző"));
-        cicakok.add(new Cica(5, "Feri"));
-        cicakok.add(new Cica(10, "Géza"));
-        System.out.println("Egyenlő" + (cicakok.get(1).equals(new Cica(5, "Feri"))));
-        System.out.println(cicakok.contains(new Cica(5, "Feri")));
-
+//        List<Cica> cicakok = new ArrayList<>();
+//        cicakok.add(new Cica(1, "Győző"));
+//        cicakok.add(new Cica(5, "Feri"));
+//        cicakok.add(new Cica(10, "Géza"));
+//        System.out.println("Egyenlő" + (cicakok.get(1).equals(new Cica(5, "Feri"))));
+//        System.out.println(cicakok.contains(new Cica(5, "Feri")));
+        try {
+            BufferedReader br = new BufferedReader(
+                    new FileReader("cicakok.txt"));
+            String line = br.readLine();
+            while (line != null) {
+                System.out.println("Az adott sor: " + line);
+                line = br.readLine();
+            }
+        } catch (FileNotFoundException ex) {
+            System.out.println("Nincsen meg e");
+        } catch (IOException ex) {
+            System.out.println("Hiba fájl olvasás közben");
+        }
     }
 }

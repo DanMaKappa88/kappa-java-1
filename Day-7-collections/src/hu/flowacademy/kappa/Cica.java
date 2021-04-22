@@ -2,8 +2,13 @@ package hu.flowacademy.kappa;
 
 import java.util.Objects;
 
+/*
+2021.04.20 -
+ */
 public class Cica {
 
+    public static int cicaSzamlalo;
+    public static final double PI_SZAM = 3.1415;
     private int eletkor;
     private String nev;
 
