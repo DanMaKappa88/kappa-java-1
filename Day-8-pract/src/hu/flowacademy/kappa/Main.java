@@ -1,8 +1,25 @@
 package hu.flowacademy.kappa;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
 
+class One {
+
+}
+
+class Two{
+    byte x;
+    One one;
+
+}
+
 public class Main {
+
+    static Two fix(Two tt){
+        tt.x = 42;
+        return tt;
+    }
 
     public static void main(String[] args) {
         // Tömb
@@ -31,5 +48,27 @@ public class Main {
         // Kulcs-érték párok tárolására való
         map.put("cica", new ArrayList<Integer>());
         map.get("cica").add(20);
+
+
+        //Készíts egy programot, amely megszámolja a paraméterben az egyes karakterek
+        //előfordulásainak számát! A megvalósításhoz használj egy String → Integer
+        //leképezést
+        //(HashMap<String,Integer>)!
+        Map<String, Integer> karakterek = new HashMap<>();
+        for (int i = 0; i < args.length; i++) {
+            String szo = args[i];
+            for (int j = 0; j < szo.length(); j++) {
+                String c = Character.toString(szo.charAt(j));
+                if(karakterek.get(c) == null) {
+                    karakterek.put(c, 1);
+                } else {
+                    karakterek.replace(c, karakterek.get(c) + 1);
+                }
+            }
+        }
+        for(Map.Entry<String, Integer> entry : karakterek.entrySet()) {
+            System.out.println("Karakter " + entry.getKey() + " darab " + entry.getValue());
+        }
+
     }
 }
